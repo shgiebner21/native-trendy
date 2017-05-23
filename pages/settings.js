@@ -34,7 +34,7 @@ class Settings extends Component {
           style={{ paddingTop: Constants.statusBarHeight}}>
           <Text cls='f4 ml3'>Settings</Text>
           <Link to='/' cls=''>
-            <Text cls='mr3'>close</Text>
+            <Text cls='mr3 f4'>close</Text>
           </Link>
         </View>
         <ListView cls='mt2 ml2'

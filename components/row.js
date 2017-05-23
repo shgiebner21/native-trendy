@@ -5,9 +5,9 @@ import { wrap } from 'react-native-style-tachyons'
 
 const Row = (props) => {
   return (
-    <Link to={`/:id`}>
+    <Link to={`/:`}>
       <View cls='jcc aic'>
-        <Text cls='f4 pv1 red'>{props.name}</Text>
+        <Text cls='f4 pv2 red'>{props.name}</Text>
       </View>
     </Link>
   )
