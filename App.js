@@ -19,7 +19,7 @@ class App extends Component {
           <Route exact path='/' component={List} />
           <Switch>
             <Route path='/settings' component={Settings} />
-            <Route path='/:id' component={Show} />
+            <Route path='/show' component={Show} />
           </Switch>
         </View>
       </NativeRouter>

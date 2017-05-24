@@ -3,26 +3,22 @@ import { wrap } from 'react-native-style-tachyons'
 import { View, Text, ScrollView } from 'react-native'
 import { Link } from 'react-router-native'
 import { Constants } from 'expo'
+import qs from 'querystring'
+import {tail, replace} from 'ramda'
+import { connect } from 'react-redux'
 
-const readme = `
-# Fun with Parker Bear and Charleston Parks Conservancy
 
-This is a web application to help connect children and families with Charleston's parks.
-
-I built this application to highlight the technical skills learned at the JRS Code Bootcamp including;
-- Database technology; CouchDb is used here but we also learned mySQL
-- Functional Javascript including libraries like Ramda, Moment and Tachyons
-- Git and Github, CLI (iTerm), Text Editors (Atom), Node.js and NPM
-- React/Redux and a RESTful API
-
-## Parker and Parks
-## User Story: LogIn, Log user in (landing page)
-As a child I need to log into the app so that I can view list of parks I have visited in the past.
-See (view park list) TODO (wireframe)
-`
-
+const getReadme = url => dispatch => fetch(url)
+  .then(res => res.text())
+  .then(readme => dispatch({ type: 'SET_README', payload: readme }))
 
 class Show extends Component {
+  componentDidMount() {
+    const { url } = qs.parse(tail(this.props.location.search))
+    const readmeUrl = replace('https://github.com', 'https://raw.githubusercontent.com', url)
+                      + '/master/README.md'
+    this.props.dispatch(getReadme(readmeUrl))
+  }
 
   render() {
     return(
@@ -35,11 +31,13 @@ class Show extends Component {
           </Link>
         </View>
         <ScrollView>
-          <Text cls='ma2'>{readme}</Text>
+          <Text cls='ma2'>{this.props.readme}</Text>
         </ScrollView>
       </View>
     )
   }
 }
 
-export default wrap(Show)
+const connector = connect(state => state)
+
+export default connector(wrap(Show))

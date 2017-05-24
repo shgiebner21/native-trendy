@@ -26,7 +26,15 @@ const store = createStore (
     },
     settings: () => null,
     settingsDs: () => null,
-    repo: () => null
+    repo: () => null,
+    readme: (state='', action) => {
+      switch (action.type) {
+        case 'SET_README':
+          return action.payload
+        default:
+          return state
+      }
+    }
   }),
   applyMiddleware(thunk)
 )
