@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import NativeTachyons from 'react-native-style-tachyons'
 import { NativeRouter, Route, Switch } from 'react-router-native'
+import { Provider } from 'react-redux'
+import store from './store'
 import List from './pages/list'
 import Settings from './pages/settings'
 import Show from './pages/show'
@@ -9,7 +11,7 @@ import Show from './pages/show'
 NativeTachyons.build({ rem: 16 }, StyleSheet)
 
 
-export default class App extends React.Component {
+class App extends Component {
   render() {
     return (
       <NativeRouter>
@@ -23,4 +25,12 @@ export default class App extends React.Component {
       </NativeRouter>
     )
   }
+}
+
+export default () => {
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  )
 }
