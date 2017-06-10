@@ -26,7 +26,6 @@ const store = createStore (
     },
     settings: () => null,
     settingsDs: () => null,
-    repo: () => null,
     readme: (state='', action) => {
       switch (action.type) {
         case 'SET_README':
