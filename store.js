@@ -45,6 +45,14 @@ const store = createStore (
           return state
       }
     },
+    loading: (state=false, action) => {
+      switch (action.type) {
+        case 'ISLOADING':
+          return action.payload
+        default:
+          return state
+      }
+    },
     db: (state = null, action) => {
       switch (action.type) {
         case 'SET_DB':

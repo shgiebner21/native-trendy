@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Constants } from 'expo'
-import { View, Text, ListView } from 'react-native'
+import { View, Text, ListView, TouchableOpacity } from 'react-native'
+import { Link } from 'react-router-native'
 import { connect } from 'react-redux'
 import { wrap } from 'react-native-style-tachyons'
+import { Octicons } from '@expo/vector-icons'
 import { pluck } from 'ramda'
 
 const Row = props => {
@@ -28,7 +30,17 @@ class Bookmarks extends Component {
   render() {
     return(
       <View style={{ paddingTop: Constants.statusBarHeight }} >
-        
+          <View cls='flx-row h3 bg-lightgray jcsb aic'
+                style={{ paddingTop: Constants.statusBarHeight }}
+          >
+          <TouchableOpacity>
+            <Octicons name='mark-github' cls='f3 ml2' />
+          </TouchableOpacity>
+          <Text cls='black f4'>Bookmarks</Text>
+          <Link to='/'>
+            <Octicons name='home' cls='f3 mr2' />
+          </Link>
+        </View>
         <ListView
           enableEmptySections
           dataSource={this.props.bookmarkDs}
