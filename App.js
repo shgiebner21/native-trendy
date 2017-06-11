@@ -7,6 +7,7 @@ import store from './store'
 import List from './pages/list'
 import Settings from './pages/settings'
 import Show from './pages/show'
+import Bookmarks from './pages/bookmarks'
 
 NativeTachyons.build({ rem: 16 }, StyleSheet)
 
@@ -16,7 +17,7 @@ class App extends Component {
     return (
       <NativeRouter>
         <View>
-          <Route exact path='/' component={List} />
+          <Route exact path='/' component={Bookmarks} />
           <Switch>
             <Route path='/settings' component={Settings} />
             <Route path='/show' component={Show} />
