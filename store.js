@@ -37,6 +37,14 @@ const store = createStore (
           return state
       }
     },
+    bookmarkDs: (state = ds.cloneWithRows([]), action) => {
+      switch (action.type) {
+        case 'SET_BOOKMARKS':
+          return ds.cloneWithRows(action.payload)
+        default:
+          return state
+      }
+    },
     db: (state = null, action) => {
       switch (action.type) {
         case 'SET_DB':

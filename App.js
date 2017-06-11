@@ -17,9 +17,9 @@ class App extends Component {
     return (
       <NativeRouter>
         <View>
-          <Route exact path='/' component={Bookmarks} />
+          <Route exact path='/' component={List} />
           <Switch>
-            <Route path='/settings' component={Settings} />
+            <Route path='/bookmarks' component={Bookmarks} />
             <Route path='/show' component={Show} />
           </Switch>
         </View>

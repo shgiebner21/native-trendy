@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import NativeTachyons, { wrap } from 'react-native-style-tachyons'
 import { Link } from 'react-router-native'
 import { Constants } from 'expo'
-import { Ionicons, Octicons } from '@expo/vector-icons'
+import { Octicons } from '@expo/vector-icons'
 
 const Header = () => {
   return (
@@ -12,8 +12,8 @@ const Header = () => {
         <Octicons name='mark-github' cls='f3 ml2' />
       </TouchableOpacity>
       <Text cls='black f4' >Github trending repos</Text>
-      <Link to='/settings'>
-        <Octicons cls='f3 mr2 black' name='gear' />
+      <Link to='/bookmarks'>
+        <Octicons cls='f3 mr2 black' name='bookmark' />
       </Link>
     </View>
   )
